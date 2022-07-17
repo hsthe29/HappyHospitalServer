@@ -1,5 +1,4 @@
 import socket.MyServer;
-
 import java.io.IOException;
 
 public class Main {
