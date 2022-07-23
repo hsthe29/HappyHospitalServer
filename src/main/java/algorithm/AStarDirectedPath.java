@@ -13,6 +13,7 @@ public class AStarDirectedPath {
     private final int height;
     private ArrayList<Position> pathPos;
     private Node2D[][] nodes;
+    private boolean boostMode = false;
 
     public AStarDirectedPath(int width,
                              int height,
@@ -119,8 +120,11 @@ public class AStarDirectedPath {
                     ) {
                         timexoay = 1;
                     }
-                    double tempG =
-                            astar_g[current.x][current.y] + 1 + current.getW() + timexoay;
+                    double tempG = astar_g[current.x][current.y];
+                    if(boostMode) {
+                        tempG += this.heuristic(current, neighbor);
+                    } else
+                        tempG += (1 + current.getW() + timexoay);
 
                     if (!this.isInclude(neighbor, closeSet)) {
                         if (this.isInclude(neighbor, openSet)) {
@@ -149,5 +153,9 @@ public class AStarDirectedPath {
         }//end of while (openSet.length > 0)
         System.out.println("Path not found!");
         return null;
+    }
+
+    public void setBoostMode(boolean value) {
+        this.boostMode = value;
     }
 }

@@ -42,8 +42,9 @@ public class MyServer {
                 } else if(msg.mode == 3) {
                     oos.writeObject(new Path(aStar.cal(msg.getStartPos(), msg.getEndPos())));
                 } else if(msg.mode == 4) {
-
                     oos.writeObject(new Path(aStarDirectedPath.calPathAStar(msg.getStartPos(), msg.getEndPos())));
+                } else if(msg.mode == 5) {
+                    aStarDirectedPath.setBoostMode(msg.getBoostMode());
                 } else {
                     if(msg.mode != 0)
                         System.out.println("Error! ");

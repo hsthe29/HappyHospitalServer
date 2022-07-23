@@ -104,7 +104,6 @@ public class AStar {
     public ArrayList<Position> cal(Position startPos, Position endPos) {
         this.path.clear();
         reset();
-        System.out.println("pos " + startPos.x + ", " + startPos.y);
         Spot start = new Spot(startPos.x, startPos.y);
         Spot end = new Spot(endPos.x, endPos.y);
 
@@ -124,7 +123,6 @@ public class AStar {
                 Spot cur = this.grid[(int) end.i][(int) end.j];
                 this.path.add(cur);
                 while (cur.previous != null) {
-                    System.out.println("cur : " + cur.i + ", " + cur.j);
                     this.path.add(cur.previous);
                     cur = cur.previous;
                 }

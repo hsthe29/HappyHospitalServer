@@ -15,6 +15,7 @@ public class Message implements Serializable {
     private ArrayList<Position> groundPos;
     private Position startPos;
     private Position endPos;
+    private boolean boostMode;
 
     public ArrayList<ArrayList<ArrayList<Position>>> getAdjacencyList() {
         return adjacencyList;
@@ -36,8 +37,17 @@ public class Message implements Serializable {
         return endPos;
     }
 
+    public boolean getBoostMode() {
+        return this.boostMode;
+    }
+
     public Message(int mode) {
         this.mode = mode;
+    }
+
+    public Message(int mode, boolean value) {
+        this.mode = mode;
+        this.boostMode = value;
     }
 
     public Message(int mode, ArrayList<Position> groundPos) {
