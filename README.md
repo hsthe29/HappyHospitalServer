@@ -1,5 +1,6 @@
 # HappyHospitalServer
 OOP Exercise
+- Score: 10/10 perfect.
 
 # Cách chạy ứng dụng.
  * Note: Dùng `IntelliJ IDEA` để chạy chương trình
